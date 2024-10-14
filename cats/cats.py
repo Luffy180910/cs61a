@@ -31,6 +31,12 @@ def pick(paragraphs, select, k):
     """
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    for i in paragraphs:
+        if select(i):
+            if k == 0:
+                return i
+            k -= 1
+    return ''
     # END PROBLEM 1
 
 
@@ -50,6 +56,12 @@ def about(subject):
     assert all([lower(x) == x for x in subject]), 'subjects should be lowercase.'
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+    def select(paragraph):
+        for i in split(remove_punctuation(lower(paragraph))):
+            if i in subject:
+                return True
+        return False
+    return select
     # END PROBLEM 2
 
 
